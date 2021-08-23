@@ -26,7 +26,7 @@ SECRET_KEY = 'y3a^be%tx=mc*fsk+qs!_qfnb2y#35#isj4c@y$(_92pg9h^^!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sagaka.pythonanywhere.com']
 
 
 # Application definition
