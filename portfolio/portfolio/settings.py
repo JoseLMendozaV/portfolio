@@ -138,4 +138,4 @@ MEDIA_ROOT = BASE_DIR / "mediafiles"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-WSGI_APPLICATION = 'vercel_app.wsgi.app'
+WSGI_APPLICATION = 'portfolio.wsgi.app'
