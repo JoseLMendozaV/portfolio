@@ -1,13 +1,15 @@
 {
-    "builds": [{
-        "src": "portfolio/portfolio/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-    }],
-    "routes": [
+    "functions": {
+        "portfolio/portfolio/wsgi.py": {
+            "runtime": "python3.9",
+            "maxDuration": 10,
+            "memory": 1024
+        }
+    },
+    "rewrites": [
         {
-            "src": "/(.*)",
-            "dest": "portfolio/portfolio/wsgi.py"
+            "source": "/(.*)",
+            "destination": "portfolio/portfolio/wsgi.py"
         }
     ]
 }
