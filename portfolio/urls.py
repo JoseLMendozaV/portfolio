@@ -5,11 +5,12 @@ from django.urls import include
 from portfolio_app import views
 from django.conf import settings
 from django.conf.urls.static import static
+from portfolio_app.views import IndexView
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', IndexView.as_view(), name='index'),
     path('portfolio_app/', include('portfolio_app.urls')),
-    path('admin/', admin.site.urls),
+    path('jnfgk5849hjfgkdfldj394kj2k2kgj5rt33/', admin.site.urls),
 ]
 
 if settings.DEBUG:

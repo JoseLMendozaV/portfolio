@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load widget_tweaks %}
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -156,56 +157,32 @@
                         <!-- * * * * * * * * * * * * * * *-->
                         <!-- * * SB Forms Contact Form * *-->
                         <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
                         <form id="contactForm" method="POST" action="">
                             {% csrf_token %}
                             <!-- Name input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="id_name" name="{{ form.name }}" type="text" placeholder="Enter your name..." data-sb-validations="required" value="{{ form.name.value|default_if_none:'' }}" />
-                                <label for="id_name">Full name</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                            <div class="form-group mb-3">
+                                <label for="{{ form.name.id_for_label }}" class="form-label">{{ form.name.label }}</label>
+                                {{ form.name|add_class:"form-control" }}
                             </div>
                             <!-- Email address input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="id_email" name="{{ form.email }}" type="email" placeholder="Enter your email..." data-sb-validations="required" value="{{ form.email.value|default_if_none:'' }}" />
-                                <label for="id_email">Email</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                            <div class="form-group mb-3">
+                                <label for="{{ form.email.id_for_label }}" class="form-label">{{ form.email.label }}</label>
+                                {{ form.email|add_class:"form-control" }}
                             </div>
                             <!-- Phone number input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="id_phone" name="{{ form.phone }}" type="text" placeholder="Enter your phone..." data-sb-validations="required" value="{{ form.phone.value|default_if_none:'' }}" />
-                                <label for="id_phone">Phone</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                            <div class="form-group mb-3">
+                                <label for="{{ form.phone.id_for_label }}" class="form-label">{{ form.phone.label }}</label>
+                                {{ form.phone|add_class:"form-control" }}
                             </div>
                             <!-- Message input-->
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="id_message" name="{{ form.message }}" placeholder="Enter your message..." data-sb-validations="required">{{ form.message.value|default_if_none:'' }}</textarea>
-                                <label for="id_message">Message</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                            <div class="form-group mb-3">
+                                <label for="{{ form.message.id_for_label }}" class="form-label">{{ form.message.label }}</label>
+                                {{ form.message|add_class:"form-control" }}
                             </div>
-                            <button class="btn btn-primary btn-xl" id="submit" type="submit">Send</button>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                         <!--   <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                </div>
-                            </div> -->
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                          <!--  <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>-->
-                            <!-- Submit Button-->
-                            
+                            <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Send</button>
                         </form>
+                        
+                        
                     </div>
                 </div>
             </div>

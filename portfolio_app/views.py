@@ -1,22 +1,29 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import generic
-from . forms import ContactForm
+from .forms import ContactForm
 from django.contrib import messages
 
+class BaseTemplateView(generic.TemplateView):
+    template_name = 'portfolio_app/index.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = ContactForm()  # Añadir el formulario al contexto aquí
+        return context
 
-def index(request):
-    return render(request, 'portfolio_app/index.html')
+class IndexView(BaseTemplateView):
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data()
+        return self.render_to_response(context)  # Pasar el contexto que contiene el formulario
 
-
-
-class ContactView(generic.FormView):
-	template_name = "portfolio_app/index.html"
-	form_class = ContactForm
-	success_url = "/"
-	
-	def form_valid(self, form):
-		form.save()
-		messages.success(self.request, 'Thank you. We will be in touch soon.')
-		return super().form_valid(form)
+    def post(self, request, *args, **kwargs):
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Thank you. We will be in touch soon.')
+            return redirect('index')
+        else:
+            messages.error(request, 'Something went wrong. Please try again.')
+            context = self.get_context_data()
+            return self.render_to_response(context)  # Pasar el contexto que contiene el formulario
