@@ -1,7 +1,7 @@
 asgiref==3.7.2
 certifi==2023.7.22
 click==7.1.2
-Django==3.2.19
+Django==4.1.10
 django-ckeditor==6.3.2
 django-js-asset==2.0.0
 Pillow==5.4.1
@@ -9,3 +9,4 @@ pytz==2022.1
 sqlparse==0.4.4
 typing_extensions==4.6.3
 wincertstore==0.2
+sqlite-database==0.3.0
