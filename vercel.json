@@ -1,15 +1,9 @@
 {
-    "functions": {
-        "portfolio/portfolio/wsgi.py": {
-            "runtime": "python3.9",
-            "maxDuration": 10,
-            "memory": 1024
-        }
-    },
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "portfolio/portfolio/wsgi.py"
-        }
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "portfolio/portfolio/wsgi.py"
+      }
     ]
-}
+  }
+  
