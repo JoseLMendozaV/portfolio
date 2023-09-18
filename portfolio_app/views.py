@@ -21,7 +21,7 @@ class IndexView(BaseTemplateView):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Thank you. We will be in touch soon.')
+            messages.success(request, 'Thank you. We will be in touch soon. :)')
             return redirect('index')
         else:
             messages.error(request, 'Something went wrong. Please try again.')
